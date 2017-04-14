@@ -1,0 +1,46 @@
+//
+//  PrefixHeader.pch
+//  StatTender
+//
+//  Created by 高子健 on 17/4/2.
+//  Copyright © 2017年 高子建. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#import <Masonry.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import "BaseModel.h"
+#import "STBaseItem.h"
+#import "STOrderItem.h"
+
+#import "UITableViewCell+TCFastCell.h"
+#import "UINavigationController+Base.h"
+
+#import "STResourceDataManager.h"
+
+//cell的标识符
+#define kTCCellIdentifier NSStringFromClass(self)
+
+// RGB颜色
+#define STColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define STColorAlpha(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+// 黑体字号
+#define STFontBold(x)       [UIFont boldSystemFontOfSize:x]
+// 苹方字体
+#define STFontSystem(x)     [UIFont systemFontOfSize:x]
+
+// 屏幕的size
+#define TCScreenSize [UIScreen mainScreen].bounds.size
+// 屏幕的宽度
+#define ScreenWidth   TCScreenSize.width
+// 屏幕的高度
+#define ScreenHeight   TCScreenSize.height
+
+#endif
+
+#endif /* PrefixHeader_pch */

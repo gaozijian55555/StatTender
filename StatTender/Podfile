@@ -1,6 +1,6 @@
 platform :ios, '8.0' #手机的系统
 
-project ‘StatTender/StatTender.xcodeproj'
+project ‘StatTender.xcodeproj'
 
 target ’StatTender’ do
     

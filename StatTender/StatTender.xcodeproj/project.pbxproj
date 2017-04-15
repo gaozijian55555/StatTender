@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D27E09B46B09373B6953CFA /* libPods-StatTender.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E424752AA69C71B4248651BA /* libPods-StatTender.a */; };
 		2F13A0811E99072B00C07CB9 /* STBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F13A0801E99072B00C07CB9 /* STBaseTabBarController.m */; };
 		2F13A0841E99077500C07CB9 /* STOrdersHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F13A0831E99077500C07CB9 /* STOrdersHostViewController.m */; };
 		2F13A08C1E9907DA00C07CB9 /* STPersonalHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F13A08B1E9907DA00C07CB9 /* STPersonalHostViewController.m */; };
@@ -35,6 +34,7 @@
 		2FF508021E911ECC00849AB0 /* STOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF508011E911ECC00849AB0 /* STOrderItem.m */; };
 		2FF508051E9127EC00849AB0 /* STSelectProductCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF508041E9127EC00849AB0 /* STSelectProductCount.m */; };
 		2FF508071E91280400849AB0 /* STSelectProductCount.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF508061E91280400849AB0 /* STSelectProductCount.xib */; };
+		F515AC6FE5FA0F4FC256F1C2 /* libPods-StatTender.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13372430DD492DCDF4222399 /* libPods-StatTender.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		075833BF3FA25E0BA5A3E607 /* Pods-StatTender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatTender.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StatTender/Pods-StatTender.debug.xcconfig"; sourceTree = "<group>"; };
+		13372430DD492DCDF4222399 /* libPods-StatTender.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StatTender.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13A07F1E99072B00C07CB9 /* STBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBaseTabBarController.h; sourceTree = "<group>"; };
 		2F13A0801E99072B00C07CB9 /* STBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBaseTabBarController.m; sourceTree = "<group>"; };
 		2F13A0821E99077500C07CB9 /* STOrdersHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOrdersHostViewController.h; sourceTree = "<group>"; };
@@ -106,9 +108,7 @@
 		2FF508041E9127EC00849AB0 /* STSelectProductCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSelectProductCount.m; sourceTree = "<group>"; };
 		2FF508061E91280400849AB0 /* STSelectProductCount.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STSelectProductCount.xib; sourceTree = "<group>"; };
 		2FF65E711E9091B6003F292B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		53068D23132C4CFF93974CDA /* Pods-StatTender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatTender.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-StatTender/Pods-StatTender.debug.xcconfig"; sourceTree = "<group>"; };
-		98CDEFF2CBD676B394558C5E /* Pods-StatTender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatTender.release.xcconfig"; path = "../Pods/Target Support Files/Pods-StatTender/Pods-StatTender.release.xcconfig"; sourceTree = "<group>"; };
-		E424752AA69C71B4248651BA /* libPods-StatTender.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StatTender.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B0AFB575702A8B9E13481D0 /* Pods-StatTender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StatTender.release.xcconfig"; path = "Pods/Target Support Files/Pods-StatTender/Pods-StatTender.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D27E09B46B09373B6953CFA /* libPods-StatTender.a in Frameworks */,
+				F515AC6FE5FA0F4FC256F1C2 /* libPods-StatTender.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,13 +137,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06A841E4F5B9FBA7DE3D650A /* Pods */ = {
+		1C24B254AC05B89629228ECC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				53068D23132C4CFF93974CDA /* Pods-StatTender.debug.xcconfig */,
-				98CDEFF2CBD676B394558C5E /* Pods-StatTender.release.xcconfig */,
+				13372430DD492DCDF4222399 /* libPods-StatTender.a */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2F13A0891E9907DA00C07CB9 /* Personal */ = {
@@ -163,8 +162,8 @@
 				2F18A2BB1E8F644300E610EC /* StatTenderTests */,
 				2F18A2C61E8F644300E610EC /* StatTenderUITests */,
 				2F18A2A01E8F644300E610EC /* Products */,
-				06A841E4F5B9FBA7DE3D650A /* Pods */,
-				2F5DA6120892C0527E09586E /* Frameworks */,
+				CD333359150F99AB9094DDC0 /* Pods */,
+				1C24B254AC05B89629228ECC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,12 +285,13 @@
 			path = Orders;
 			sourceTree = "<group>";
 		};
-		2F5DA6120892C0527E09586E /* Frameworks */ = {
+		CD333359150F99AB9094DDC0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E424752AA69C71B4248651BA /* libPods-StatTender.a */,
+				075833BF3FA25E0BA5A3E607 /* Pods-StatTender.debug.xcconfig */,
+				5B0AFB575702A8B9E13481D0 /* Pods-StatTender.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,12 +301,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F18A2CC1E8F644300E610EC /* Build configuration list for PBXNativeTarget "StatTender" */;
 			buildPhases = (
-				FBFB394C2CC15A53453A7DED /* [CP] Check Pods Manifest.lock */,
+				CCAE4BE1D4778949204A4EE4 /* [CP] Check Pods Manifest.lock */,
 				2F18A29B1E8F644300E610EC /* Sources */,
 				2F18A29C1E8F644300E610EC /* Frameworks */,
 				2F18A29D1E8F644300E610EC /* Resources */,
-				202D3898508F59E7AEE6882A /* [CP] Embed Pods Frameworks */,
-				EC41A14AB2B9186BA90A7A54 /* [CP] Copy Pods Resources */,
+				8FCB8F7A7752D45D717E2724 /* [CP] Embed Pods Frameworks */,
+				314AAD67EA0609D58A2B486D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -431,22 +431,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		202D3898508F59E7AEE6882A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-StatTender/Pods-StatTender-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC41A14AB2B9186BA90A7A54 /* [CP] Copy Pods Resources */ = {
+		314AAD67EA0609D58A2B486D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -458,10 +443,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-StatTender/Pods-StatTender-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StatTender/Pods-StatTender-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FBFB394C2CC15A53453A7DED /* [CP] Check Pods Manifest.lock */ = {
+		8FCB8F7A7752D45D717E2724 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StatTender/Pods-StatTender-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCAE4BE1D4778949204A4EE4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -645,7 +645,7 @@
 		};
 		2F18A2CD1E8F644300E610EC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53068D23132C4CFF93974CDA /* Pods-StatTender.debug.xcconfig */;
+			baseConfigurationReference = 075833BF3FA25E0BA5A3E607 /* Pods-StatTender.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -662,7 +662,7 @@
 		};
 		2F18A2CE1E8F644300E610EC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98CDEFF2CBD676B394558C5E /* Pods-StatTender.release.xcconfig */;
+			baseConfigurationReference = 5B0AFB575702A8B9E13481D0 /* Pods-StatTender.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

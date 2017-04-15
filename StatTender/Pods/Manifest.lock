@@ -1,0 +1,40 @@
+PODS:
+  - AVOSCloud (4.2.0)
+  - AVOSCloudCrashReporting (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudCrashReporting/_ARC (= 4.2.0)
+    - AVOSCloudCrashReporting/_NOARC (= 4.2.0)
+  - AVOSCloudCrashReporting/_ARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudCrashReporting/_NOARC (= 4.2.0)
+  - AVOSCloudCrashReporting/_NOARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
+  - AVOSCloudIM (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudIM/_ARC (= 4.2.0)
+    - AVOSCloudIM/_NOARC (= 4.2.0)
+  - AVOSCloudIM/_ARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
+    - AVOSCloudIM/_NOARC (= 4.2.0)
+  - AVOSCloudIM/_NOARC (4.2.0):
+    - AVOSCloud (= 4.2.0)
+  - Masonry (1.0.2)
+  - MJExtension (3.0.13)
+
+DEPENDENCIES:
+  - AVOSCloud
+  - AVOSCloudCrashReporting
+  - AVOSCloudIM
+  - Masonry
+  - MJExtension (~> 3.0.13)
+
+SPEC CHECKSUMS:
+  AVOSCloud: 5446ad0320f4942cce1a036d131992cd1115db99
+  AVOSCloudCrashReporting: d7ab96935498000477076e35b17849abfa716652
+  AVOSCloudIM: 69df8e8517247f3c2585e321f24e777d5b398843
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+
+PODFILE CHECKSUM: f204da838f86e8d5c589e3a8b1365865a0978f4c
+
+COCOAPODS: 1.2.0

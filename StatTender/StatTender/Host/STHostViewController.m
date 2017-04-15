@@ -55,6 +55,8 @@ static BOOL isShowOrderView = YES;
     self = [super init];
     if (self) {
         
+        [self registerObservers];
+
         _listTitleModel = [[STBaseItem alloc] init];
         _listTitleModel.index = @"序号";
         _listTitleModel.name = @"品     名";
@@ -69,8 +71,20 @@ static BOOL isShowOrderView = YES;
         
         _editState = STEditStateReading;
         _orderSideWidth = 400;
+
+        
     }
     return self;
+}
+
+- (void)registerObservers
+{
+    NotificationRegister(STNOTIFICATION_CANCEL_NEW_ORDER, self, @selector(newOrderChanged:), nil);
+}
+
+- (void)newOrderChanged:(NSNotification *)not
+{
+    _editState = STEditStateReading;
 }
 
 - (void)viewDidLoad {

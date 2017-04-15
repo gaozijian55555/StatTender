@@ -39,13 +39,18 @@
 // 添加订单 - Secend
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) UIButton *btnAddOrder;
+
+@property (nonatomic, strong) UIButton *btnCancelOrder;
+
+
 
 @property (nonatomic, copy) void(^callBack)(BOOL isShowSelf, BOOL isAuto);
 
 
 #pragma mark - 订单数据
 // 当前选中的订单数据列表
-@property (nonatomic, strong) NSMutableArray<STOrderItem *> *selectedOrderItems;
+@property (nonatomic, strong) NSMutableArray<STOrderItem *> *arraySelectedOrderItems;
 
 
 @end
@@ -69,7 +74,7 @@
     if (self) {
         self.view.backgroundColor = [UIColor clearColor];
         
-        _selectedOrderItems = [NSMutableArray array];
+        _arraySelectedOrderItems = [NSMutableArray array];
         
     }
     return self;
@@ -184,13 +189,17 @@
     
 }
 
-
+#pragma mark - View Move
 
 - (void)moveToSide
 {
     CGFloat duration = .5f;
     
     [self addTableView];
+    
+    [self addBtnAddOrder];
+    
+    [self addBtnCancelOrder];
     
     [UIView animateWithDuration:duration animations:^{
         
@@ -291,7 +300,7 @@
             make.top.equalTo(_backDateImage.mas_bottom).offset(30);
             make.left.mas_equalTo(10);
             make.right.mas_equalTo(-10);
-            make.bottom.mas_equalTo(-100);
+            make.bottom.mas_equalTo(-200);
         }];
     }
 }
@@ -299,13 +308,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _selectedOrderItems.count;
+    return _arraySelectedOrderItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     STOrderDownCell *cell = [STOrderDownCell cellWithTableViewFromXIB:tableView];
-    [cell setDataWithModel:_selectedOrderItems[indexPath.row]];
+    [cell setDataWithModel:_arraySelectedOrderItems[indexPath.row]];
     return cell;
 }
 
@@ -331,11 +340,54 @@
     return cell;
 }
 
+#pragma mark - Order提交及取消按钮
+
+- (void)addBtnAddOrder
+{
+    if (_btnAddOrder == nil) {
+        _btnAddOrder = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_btnAddOrder setTitle:@"确认订单" forState:UIControlStateNormal];
+        [_btnAddOrder setBackgroundColor:STColorAlpha(187, 268, 11, .5f)];
+        _btnAddOrder.layer.cornerRadius = 10.f;
+        _btnAddOrder.titleLabel.font = STFontSystem(20);
+        [_btnAddOrder addTarget:self action:@selector(addOrder:) forControlEvents:UIControlEventTouchUpInside];
+        [_effectView addSubview:_btnAddOrder];
+        
+        [_btnAddOrder mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_tableView.mas_bottom).offset(20);
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
+            make.height.mas_equalTo(50);
+        }];
+    }
+}
+
+- (void)addBtnCancelOrder
+{
+    if (_btnCancelOrder == nil) {
+        _btnCancelOrder = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_btnCancelOrder setTitle:@"取消订单" forState:UIControlStateNormal];
+        [_btnCancelOrder setBackgroundColor:STColorAlpha(216, 216, 216, .8f)];
+        _btnCancelOrder.layer.cornerRadius = 10.f;
+        _btnCancelOrder.titleLabel.font = STFontSystem(20);
+        [_btnCancelOrder addTarget:self action:@selector(cancelOrder:) forControlEvents:UIControlEventTouchUpInside];
+        [_effectView addSubview:_btnCancelOrder];
+        
+        [_btnCancelOrder mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_btnAddOrder.mas_bottom).offset(20);
+            make.left.mas_equalTo(20);
+            make.right.mas_equalTo(-20);
+            make.height.mas_equalTo(50);
+        }];
+    }
+
+}
+
 #pragma mark - 数据处理
 
 - (void)setSelecedItem:(STOrderItem *)item
 {
-    [_selectedOrderItems addObject:item];
+    [_arraySelectedOrderItems addObject:item];
     
     [_tableView reloadData];
 }
@@ -385,10 +437,35 @@
         self.callBack(YES, NO);
 }
 
+#pragma Secend
+
 - (void)actionRound:(UIButton *)sender
 {
     if (self.callBack)
         self.callBack(YES, YES);
+}
+
+/** 确定添加订单操作 */
+- (void)addOrder:(UIButton *)sender
+{
+    STOrderObject *orderObj = [[STOrderObject alloc] init];
+    orderObj.orderItems = self.arraySelectedOrderItems;
+    
+    ReqCloudUpdateOrderObj(orderObj, ^(BOOL isSucceed) {
+        
+    });
+}
+
+- (void)cancelOrder:(UIButton *)sender
+{
+    STAlertView(@"订单取消",
+                @"当前操作：取消正在创建的订单，若点击“确定取消”，该订单取消后将不可被恢复！",
+                @"留下继续编辑", @"确定取消", ^(NSUInteger index) {
+        if (index) {
+            NotificationPost(STNOTIFICATION_CANCEL_NEW_ORDER, self, nil);
+            [self.view removeFromSuperview];
+        }
+    });
 }
 
 @end

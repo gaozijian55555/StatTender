@@ -18,7 +18,7 @@
 		2F18A2B21E8F644300E610EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F18A2B01E8F644300E610EC /* LaunchScreen.storyboard */; };
 		2F18A2BD1E8F644300E610EC /* StatTenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F18A2BC1E8F644300E610EC /* StatTenderTests.m */; };
 		2F18A2C81E8F644300E610EC /* StatTenderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F18A2C71E8F644300E610EC /* StatTenderUITests.m */; };
-		2F18A2D91E8F67BB00E610EC /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F18A2D81E8F67BB00E610EC /* Property List.plist */; };
+		2F18A2D91E8F67BB00E610EC /* Tender2016.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F18A2D81E8F67BB00E610EC /* Tender2016.plist */; };
 		2F1945611E90B74500D6D44B /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19455C1E90B74500D6D44B /* BaseModel.m */; };
 		2F1945621E90B74500D6D44B /* RunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19455E1E90B74500D6D44B /* RunTime.m */; };
 		2F1945631E90B74500D6D44B /* UITableViewCell+TCFastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1945601E90B74500D6D44B /* UITableViewCell+TCFastCell.m */; };
@@ -29,6 +29,11 @@
 		2F1945761E90B7BB00D6D44B /* STResourceDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1945721E90B7BB00D6D44B /* STResourceDataManager.m */; };
 		2F1945771E90B7BB00D6D44B /* STOrderDownController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1945751E90B7BB00D6D44B /* STOrderDownController.m */; };
 		2F19457A1E90E11C00D6D44B /* UINavigationController+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1945791E90E11C00D6D44B /* UINavigationController+Base.m */; };
+		2F19AB4C1EA2069100A02EB3 /* STOrderObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19AB4B1EA2069100A02EB3 /* STOrderObject.m */; };
+		2F19AB541EA20EA300A02EB3 /* STToolBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19AB531EA20EA300A02EB3 /* STToolBaseClass.m */; };
+		2F19AB581EA2124E00A02EB3 /* STMacroNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19AB571EA2124E00A02EB3 /* STMacroNotifications.m */; };
+		2F19AB5B1EA2184E00A02EB3 /* STLeanCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19AB5A1EA2184E00A02EB3 /* STLeanCloudManager.m */; };
+		2F19AB5E1EA225D700A02EB3 /* STLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19AB5D1EA225D700A02EB3 /* STLocalDataManager.m */; };
 		2FF507FE1E911B9B00849AB0 /* STOrderDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF507FC1E911B9B00849AB0 /* STOrderDownCell.m */; };
 		2FF507FF1E911B9B00849AB0 /* STOrderDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF507FD1E911B9B00849AB0 /* STOrderDownCell.xib */; };
 		2FF508021E911ECC00849AB0 /* STOrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF508011E911ECC00849AB0 /* STOrderItem.m */; };
@@ -79,7 +84,7 @@
 		2F18A2C31E8F644300E610EC /* StatTenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatTenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F18A2C71E8F644300E610EC /* StatTenderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatTenderUITests.m; sourceTree = "<group>"; };
 		2F18A2C91E8F644300E610EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F18A2D81E8F67BB00E610EC /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		2F18A2D81E8F67BB00E610EC /* Tender2016.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tender2016.plist; sourceTree = "<group>"; };
 		2F19455B1E90B74500D6D44B /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2F19455C1E90B74500D6D44B /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2F19455D1E90B74500D6D44B /* RunTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTime.h; sourceTree = "<group>"; };
@@ -99,6 +104,16 @@
 		2F1945751E90B7BB00D6D44B /* STOrderDownController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOrderDownController.m; sourceTree = "<group>"; };
 		2F1945781E90E11C00D6D44B /* UINavigationController+Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Base.h"; sourceTree = "<group>"; };
 		2F1945791E90E11C00D6D44B /* UINavigationController+Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Base.m"; sourceTree = "<group>"; };
+		2F19AB4A1EA2069100A02EB3 /* STOrderObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOrderObject.h; sourceTree = "<group>"; };
+		2F19AB4B1EA2069100A02EB3 /* STOrderObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOrderObject.m; sourceTree = "<group>"; };
+		2F19AB521EA20EA300A02EB3 /* STToolBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STToolBaseClass.h; sourceTree = "<group>"; };
+		2F19AB531EA20EA300A02EB3 /* STToolBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STToolBaseClass.m; sourceTree = "<group>"; };
+		2F19AB561EA2124E00A02EB3 /* STMacroNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STMacroNotifications.h; sourceTree = "<group>"; };
+		2F19AB571EA2124E00A02EB3 /* STMacroNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STMacroNotifications.m; sourceTree = "<group>"; };
+		2F19AB591EA2184E00A02EB3 /* STLeanCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLeanCloudManager.h; sourceTree = "<group>"; };
+		2F19AB5A1EA2184E00A02EB3 /* STLeanCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLeanCloudManager.m; sourceTree = "<group>"; };
+		2F19AB5C1EA225D700A02EB3 /* STLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STLocalDataManager.h; sourceTree = "<group>"; };
+		2F19AB5D1EA225D700A02EB3 /* STLocalDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STLocalDataManager.m; sourceTree = "<group>"; };
 		2FF507FB1E911B9B00849AB0 /* STOrderDownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STOrderDownCell.h; sourceTree = "<group>"; };
 		2FF507FC1E911B9B00849AB0 /* STOrderDownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STOrderDownCell.m; sourceTree = "<group>"; };
 		2FF507FD1E911B9B00849AB0 /* STOrderDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STOrderDownCell.xib; sourceTree = "<group>"; };
@@ -181,9 +196,11 @@
 			isa = PBXGroup;
 			children = (
 				2FF65E711E9091B6003F292B /* PrefixHeader.pch */,
-				2F18A2D81E8F67BB00E610EC /* Property List.plist */,
+				2F18A2D81E8F67BB00E610EC /* Tender2016.plist */,
 				2F18A2A51E8F644300E610EC /* AppDelegate.h */,
 				2F18A2A61E8F644300E610EC /* AppDelegate.m */,
+				2F19AB551EA2123B00A02EB3 /* Marco */,
+				2F19AB511EA20EA300A02EB3 /* Public */,
 				2F1945701E90B7BB00D6D44B /* Manager */,
 				2F19455A1E90B74500D6D44B /* Base */,
 				2F1945641E90B77800D6D44B /* Host */,
@@ -265,6 +282,10 @@
 			children = (
 				2F1945711E90B7BB00D6D44B /* STResourceDataManager.h */,
 				2F1945721E90B7BB00D6D44B /* STResourceDataManager.m */,
+				2F19AB591EA2184E00A02EB3 /* STLeanCloudManager.h */,
+				2F19AB5A1EA2184E00A02EB3 /* STLeanCloudManager.m */,
+				2F19AB5C1EA225D700A02EB3 /* STLocalDataManager.h */,
+				2F19AB5D1EA225D700A02EB3 /* STLocalDataManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -274,6 +295,8 @@
 			children = (
 				2FF508001E911ECC00849AB0 /* STOrderItem.h */,
 				2FF508011E911ECC00849AB0 /* STOrderItem.m */,
+				2F19AB4A1EA2069100A02EB3 /* STOrderObject.h */,
+				2F19AB4B1EA2069100A02EB3 /* STOrderObject.m */,
 				2F1945741E90B7BB00D6D44B /* STOrderDownController.h */,
 				2F1945751E90B7BB00D6D44B /* STOrderDownController.m */,
 				2FF507FB1E911B9B00849AB0 /* STOrderDownCell.h */,
@@ -283,6 +306,24 @@
 				2F13A0831E99077500C07CB9 /* STOrdersHostViewController.m */,
 			);
 			path = Orders;
+			sourceTree = "<group>";
+		};
+		2F19AB511EA20EA300A02EB3 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				2F19AB521EA20EA300A02EB3 /* STToolBaseClass.h */,
+				2F19AB531EA20EA300A02EB3 /* STToolBaseClass.m */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		2F19AB551EA2123B00A02EB3 /* Marco */ = {
+			isa = PBXGroup;
+			children = (
+				2F19AB561EA2124E00A02EB3 /* STMacroNotifications.h */,
+				2F19AB571EA2124E00A02EB3 /* STMacroNotifications.m */,
+			);
+			path = Marco;
 			sourceTree = "<group>";
 		};
 		CD333359150F99AB9094DDC0 /* Pods */ = {
@@ -408,7 +449,7 @@
 				2FF508071E91280400849AB0 /* STSelectProductCount.xib in Resources */,
 				2FF507FF1E911B9B00849AB0 /* STOrderDownCell.xib in Resources */,
 				2F18A2AF1E8F644300E610EC /* Assets.xcassets in Resources */,
-				2F18A2D91E8F67BB00E610EC /* Property List.plist in Resources */,
+				2F18A2D91E8F67BB00E610EC /* Tender2016.plist in Resources */,
 				2F19456F1E90B77800D6D44B /* STProductBaseInfoCell.xib in Resources */,
 				2F18A2AD1E8F644300E610EC /* Main.storyboard in Resources */,
 			);
@@ -484,18 +525,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F19456C1E90B77800D6D44B /* STBaseItem.m in Sources */,
+				2F19AB4C1EA2069100A02EB3 /* STOrderObject.m in Sources */,
 				2F1945761E90B7BB00D6D44B /* STResourceDataManager.m in Sources */,
 				2F1945621E90B74500D6D44B /* RunTime.m in Sources */,
 				2F13A08C1E9907DA00C07CB9 /* STPersonalHostViewController.m in Sources */,
+				2F19AB581EA2124E00A02EB3 /* STMacroNotifications.m in Sources */,
 				2FF508021E911ECC00849AB0 /* STOrderItem.m in Sources */,
 				2FF508051E9127EC00849AB0 /* STSelectProductCount.m in Sources */,
 				2FF507FE1E911B9B00849AB0 /* STOrderDownCell.m in Sources */,
 				2F19456E1E90B77800D6D44B /* STProductBaseInfoCell.m in Sources */,
+				2F19AB5B1EA2184E00A02EB3 /* STLeanCloudManager.m in Sources */,
 				2F13A0811E99072B00C07CB9 /* STBaseTabBarController.m in Sources */,
 				2F1945611E90B74500D6D44B /* BaseModel.m in Sources */,
 				2F19457A1E90E11C00D6D44B /* UINavigationController+Base.m in Sources */,
 				2F13A0841E99077500C07CB9 /* STOrdersHostViewController.m in Sources */,
 				2F19456D1E90B77800D6D44B /* STHostViewController.m in Sources */,
+				2F19AB541EA20EA300A02EB3 /* STToolBaseClass.m in Sources */,
+				2F19AB5E1EA225D700A02EB3 /* STLocalDataManager.m in Sources */,
 				2F1945631E90B74500D6D44B /* UITableViewCell+TCFastCell.m in Sources */,
 				2F1945771E90B7BB00D6D44B /* STOrderDownController.m in Sources */,
 				2F13A0911E99170600C07CB9 /* UITabBarController+RootTabBarController.m in Sources */,

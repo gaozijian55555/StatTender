@@ -16,11 +16,17 @@
 #import "BaseModel.h"
 #import "STBaseItem.h"
 #import "STOrderItem.h"
+#import "STOrderObject.h"
 
 #import "UITableViewCell+TCFastCell.h"
 #import "UINavigationController+Base.h"
 
 #import "STResourceDataManager.h"
+#import "STToolBaseClass.h"
+#import "STLeanCloudManager.h"
+
+#import "STMacroNotifications.h"
+
 
 //cell的标识符
 #define kTCCellIdentifier NSStringFromClass(self)

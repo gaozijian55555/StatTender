@@ -16,7 +16,7 @@
     static NSUInteger rightCount = 0;
     
     // 数据源数据 plist
-    NSString *soursePath = [[NSBundle mainBundle] pathForResource:@"Property List" ofType:@"plist"];
+    NSString *soursePath = [[NSBundle mainBundle] pathForResource:@"Tender2016" ofType:@"plist"];
     // 数据源承载数组
     NSMutableArray<STBaseItem *> *arrayAll = [NSMutableArray array];
     

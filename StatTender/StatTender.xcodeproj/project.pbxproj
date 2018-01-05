@@ -18,7 +18,7 @@
 		2F18A2B21E8F644300E610EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F18A2B01E8F644300E610EC /* LaunchScreen.storyboard */; };
 		2F18A2BD1E8F644300E610EC /* StatTenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F18A2BC1E8F644300E610EC /* StatTenderTests.m */; };
 		2F18A2C81E8F644300E610EC /* StatTenderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F18A2C71E8F644300E610EC /* StatTenderUITests.m */; };
-		2F18A2D91E8F67BB00E610EC /* Tender2016.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F18A2D81E8F67BB00E610EC /* Tender2016.plist */; };
+		2F18A2D91E8F67BB00E610EC /* Tender2018.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F18A2D81E8F67BB00E610EC /* Tender2018.plist */; };
 		2F1945611E90B74500D6D44B /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19455C1E90B74500D6D44B /* BaseModel.m */; };
 		2F1945621E90B74500D6D44B /* RunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F19455E1E90B74500D6D44B /* RunTime.m */; };
 		2F1945631E90B74500D6D44B /* UITableViewCell+TCFastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1945601E90B74500D6D44B /* UITableViewCell+TCFastCell.m */; };
@@ -173,7 +173,7 @@
 		2F18A2C31E8F644300E610EC /* StatTenderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatTenderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F18A2C71E8F644300E610EC /* StatTenderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatTenderUITests.m; sourceTree = "<group>"; };
 		2F18A2C91E8F644300E610EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F18A2D81E8F67BB00E610EC /* Tender2016.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tender2016.plist; sourceTree = "<group>"; };
+		2F18A2D81E8F67BB00E610EC /* Tender2018.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tender2018.plist; sourceTree = "<group>"; };
 		2F19455B1E90B74500D6D44B /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		2F19455C1E90B74500D6D44B /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		2F19455D1E90B74500D6D44B /* RunTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTime.h; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				2FF65E711E9091B6003F292B /* PrefixHeader.pch */,
-				2F18A2D81E8F67BB00E610EC /* Tender2016.plist */,
+				2F18A2D81E8F67BB00E610EC /* Tender2018.plist */,
 				2F18A2A51E8F644300E610EC /* AppDelegate.h */,
 				2F18A2A61E8F644300E610EC /* AppDelegate.m */,
 				2F19AB551EA2123B00A02EB3 /* Marco */,
@@ -848,7 +848,7 @@
 				2FEB1CBA1EC80B1A00C2C865 /* 30.png in Resources */,
 				2FEB1CE51EC80B1A00C2C865 /* 7.png in Resources */,
 				2FEB1CBD1EC80B1A00C2C865 /* 33.png in Resources */,
-				2F18A2D91E8F67BB00E610EC /* Tender2016.plist in Resources */,
+				2F18A2D91E8F67BB00E610EC /* Tender2018.plist in Resources */,
 				2FEB1CE91EC80B1A00C2C865 /* 73.png in Resources */,
 				2FEB1CAF1EC80B1A00C2C865 /* 20.png in Resources */,
 				2FEB1CA61EC80B1A00C2C865 /* 12.png in Resources */,

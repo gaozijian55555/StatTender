@@ -7,6 +7,12 @@
 //
 
 #import "STLeanCloudManager.h"
+#import "RunTime.h"
+
+/** 数据库-Orders表 */
+#define dbOrders @"Orders"
+
+
 
 static STLeanCloudManager *manager = nil;
 
@@ -23,21 +29,42 @@ static STLeanCloudManager *manager = nil;
 
 - (AVObject *)reqCloudToUpdateOrder:(STOrderObject *)orderObject result:(LeanCloudResult)result
 {
-    NSMutableDictionary *dictOrderObject = [orderObject mj_keyValues];
-    
-    AVObject *cloudOrders = [[AVObject alloc] initWithClassName:@"Orders"];
-    [cloudOrders setObject:dictOrderObject[@"isCleared"] forKey:@"isCleared"];
-    [cloudOrders setObject:dictOrderObject[@"isSigned"] forKey:@"isSigned"];
-    [cloudOrders setObject:dictOrderObject[@"isPrinted"] forKey:@"isPrinted"];
-    [cloudOrders setObject:dictOrderObject[@"objectID"] forKey:@"objectID"];
-    [cloudOrders setObject:dictOrderObject[@"orderItems"] forKey:@"orderItems"];
-    
-    [cloudOrders saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        [dictOrderObject setObject:cloudOrders.objectId forKey:@"objectID"];
+    if (orderObject.objectID.length) {
+        NSMutableDictionary *dictOrderObject = [orderObject mj_keyValues];
+
+        AVObject *cloudOrders =[AVObject objectWithClassName:dbOrders objectId:dictOrderObject[@"objectID"]];
         
-    }];
-    
-    return cloudOrders;
+        NSArray *arrayIvars = [RunTime getIvarList:self];
+        for (NSDictionary *dictIvar in arrayIvars) {    // 遍历全部KEY 进行上传
+            NSString *ivarName = dictIvar[@"name"];
+            [cloudOrders setObject:dictOrderObject[ivarName] forKey:ivarName];
+        }
+        
+        // 保存到云端
+        [cloudOrders saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (result) result(succeeded, error);
+        }];
+        
+        return cloudOrders;
+    }
+    else {
+        NSMutableDictionary *dictOrderObject = [orderObject mj_keyValues];
+        
+        AVObject *cloudOrders = [[AVObject alloc] initWithClassName:dbOrders];
+        
+        NSArray *arrayIvars = [RunTime getIvarList:self];
+        for (NSDictionary *dictIvar in arrayIvars) {    // 遍历全部KEY 进行上传
+            NSString *ivarName = dictIvar[@"name"];
+            [cloudOrders setObject:dictOrderObject[ivarName] forKey:ivarName];
+        }
+        
+        [cloudOrders saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            [dictOrderObject setObject:cloudOrders.objectId forKey:@"objectID"];
+            if (result) result(succeeded, error);
+        }];
+        
+        return cloudOrders;
+    }
 }
 
 @end

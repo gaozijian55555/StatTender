@@ -40,9 +40,7 @@
     //    if ([self.viewControllers indexOfObject:selectedViewController] != 2) {
     UINavigationController * nav = (UINavigationController *)selectedViewController;
     if (nav.viewControllers.count == 1) {
-        [nav setNavigationBarHidden:YES animated:NO];
-        //        }
-        NSLog(@"当前选中的是服务");
+//        [nav setNavigationBarHidden:YES animated:NO];
     }
     
     [super setSelectedViewController:selectedViewController];

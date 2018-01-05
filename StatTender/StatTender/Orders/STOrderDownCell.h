@@ -10,6 +10,10 @@
 
 @interface STOrderDownCell : UITableViewCell
 
+// 设置为Header状态
 - (void)setForHeaderView;
+
+// 设置为订单的展示状态（黑白）
+- (void)setForOrderShow;
 
 @end

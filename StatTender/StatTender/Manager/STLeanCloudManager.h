@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^LeanCloudResult)(BOOL isSucceed);
+typedef void(^LeanCloudResult)(BOOL succeeded, NSError *error);
 
 @interface STLeanCloudManager : NSObject
 

@@ -340,6 +340,12 @@
     return cell;
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    _pickerDate.hidden = YES;
+    _pickerFactory.hidden = YES;
+}
+
 #pragma mark - Order提交及取消按钮
 
 - (void)addBtnAddOrder
@@ -450,10 +456,18 @@
 {
     STOrderObject *orderObj = [[STOrderObject alloc] init];
     orderObj.orderItems = self.arraySelectedOrderItems;
+    orderObj.companyName = self.txtFactoryName.text;
+    orderObj.downAt = self.txtOrderDate.text;
     
-    ReqCloudUpdateOrderObj(orderObj, ^(BOOL isSucceed) {
-        
-    });
+    BOOL isSucceed = SaveLocalOrder(orderObj);
+    
+    if (isSucceed) {
+        ToastShowSucceed(@"订单保存成功");
+        NotificationPost(STNOTIFICATION_CANCEL_NEW_ORDER, self, nil);
+        [self.view removeFromSuperview];
+    }
+    else
+        ToastShowError(@"订单保存失败");
 }
 
 - (void)cancelOrder:(UIButton *)sender

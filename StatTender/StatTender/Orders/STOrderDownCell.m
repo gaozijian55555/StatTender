@@ -58,4 +58,20 @@
     }
 }
 
+- (void)setForOrderShow
+{
+    
+    for (UILabel *view in self.contentView.subviews) {
+        if ([view isKindOfClass:[UILabel class]]) {
+            view.backgroundColor = [UIColor clearColor];
+            view.layer.borderColor = STColor(0, 0, 0).CGColor;
+            view.textColor = STColor(0, 0, 0);
+            view.layer.borderWidth = .1f;
+        }
+    }
+    self.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
 @end

@@ -18,5 +18,4 @@
  @param item 传入选中的订单模型 */
 - (void)setSelecedItem:(STOrderItem *)item;
 
-
 @end

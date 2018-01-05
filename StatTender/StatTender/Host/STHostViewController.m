@@ -12,10 +12,11 @@
 #import "STOrderDownController.h"
 #import "STSelectProductCount.h"
 #import "UITabBarController+RootTabBarController.h"
+#import "STHostSearchBar.h"
 
 static BOOL isShowOrderView = YES;
 
-@interface STHostViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface STHostViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, STSearchBarDelegate>
 {
     CGFloat _orderSideWidth ; // 订单视图宽度
     
@@ -26,15 +27,27 @@ static BOOL isShowOrderView = YES;
 
 @property (nonatomic, strong) NSArray<STBaseItem *> *allData;
 
+@property (nonatomic, strong) NSMutableArray<STBaseItem *> *arraySearch;
+
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) STOrderDownController *orderDownVC;
 
 @property (nonatomic, assign) BOOL isHideStatusBar;
 
+@property (nonatomic, strong) STHostSearchBar *searchBar;
+
 @end
 
 @implementation STHostViewController
+
+- (NSMutableArray *)arraySearch
+{
+    if (_arraySearch == nil) {
+        _arraySearch = [NSMutableArray array];
+    }
+    return _arraySearch;
+}
 
 - (void)addTableView
 {
@@ -50,6 +63,23 @@ static BOOL isShowOrderView = YES;
     }
 }
 
+- (void)addSearchBar
+{
+    if (_searchBar == nil) {
+        
+        _searchBar = [STHostSearchBar createSearchBar];
+        _searchBar.delegate = self;
+        [self.view addSubview:_searchBar];
+        
+        [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(100);
+            make.centerX.mas_equalTo(0);
+            make.width.mas_equalTo(500);
+            make.height.mas_equalTo(50);
+        }];
+    }
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -57,6 +87,7 @@ static BOOL isShowOrderView = YES;
         
         [self registerObservers];
 
+        // 加载标题栏数据
         _listTitleModel = [[STBaseItem alloc] init];
         _listTitleModel.index = @"序号";
         _listTitleModel.name = @"品     名";
@@ -72,6 +103,9 @@ static BOOL isShowOrderView = YES;
         _editState = STEditStateReading;
         _orderSideWidth = 400;
 
+        // 加载全部标书数据
+        _allData = [STResourceDataManager fetchSourceData];
+
         
     }
     return self;
@@ -80,6 +114,7 @@ static BOOL isShowOrderView = YES;
 - (void)registerObservers
 {
     NotificationRegister(STNOTIFICATION_CANCEL_NEW_ORDER, self, @selector(newOrderChanged:), nil);
+    NotificationRegister(STNOTIFICATION_CANCEL_NEW_ORDER, self, @selector(cancelCurrentOrder), nil);
 }
 
 - (void)newOrderChanged:(NSNotification *)not
@@ -92,7 +127,10 @@ static BOOL isShowOrderView = YES;
     
     [self setNavigationItems];
     
-    _allData = [STResourceDataManager fetchSourceData];
+    [self addTableView];
+    
+    [self addSearchBar];
+    
     
 }
 
@@ -100,7 +138,6 @@ static BOOL isShowOrderView = YES;
 {
     [super viewWillAppear:animated];
     
-    [self addTableView];
 }
 
 - (void)setNavigationItems
@@ -114,13 +151,21 @@ static BOOL isShowOrderView = YES;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.searchBar.text.length)
+        return _arraySearch.count;
+    
     return _allData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     STProductBaseInfoCell *cell = [STProductBaseInfoCell cellWithTableViewFromXIB:tableView];
-    [cell setDataWithModel:_allData[indexPath.row]];
+    
+    if (self.searchBar.text.length)
+        [cell setDataWithModel:self.arraySearch[indexPath.row]];
+    else
+        [cell setDataWithModel:_allData[indexPath.row]];
+    
     return cell;
 }
 
@@ -134,23 +179,25 @@ static BOOL isShowOrderView = YES;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 44;
+    return 50;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
+    [self.searchBar cancelFirstResponse];
+    
     CGRect location = [tableView rectForRowAtIndexPath:indexPath];
     location.origin.y -= tableView.contentOffset.y - tableView.visibleCells.firstObject.contentView.frame.size.height;
     
     if (_editState == STEditStateSelected) {
-        [STSelectProductCount showSelProductViewWithBaseItem:_allData[indexPath.row] location:location callBack:^(STOrderItem *orderItem) {
+        [STSelectProductCount showSelProductViewWithBaseItem:self.searchBar.text.length?self.arraySearch[indexPath.row]:_allData[indexPath.row] location:location callBack:^(STOrderItem *orderItem) {
             
             [_orderDownVC setSelecedItem:orderItem];
             
@@ -162,11 +209,13 @@ static BOOL isShowOrderView = YES;
 {
 //    if (_editState == STEditStateSelected && isShowOrderView == YES)
 //        [self showOrderDownView:NO];
+    
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     if (scrollView == _tableView) {
+        
         [self.navigationController setNavigationBarHidden:(velocity.y > 0) animated:YES];
         [self.tabBarController setTabBarHidden:(velocity.y > 0) animated:YES];
         
@@ -176,6 +225,43 @@ static BOOL isShowOrderView = YES;
         
     }
 }
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.searchBar cancelFirstResponse];
+
+    [self.searchBar mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(50);
+    }];
+    self.searchBar.alpha = 0;
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:.5f animations:^{
+        [self.searchBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(100);
+        }];
+        self.searchBar.alpha = 1;
+        
+        [self.view layoutIfNeeded];
+        [self.searchBar layoutIfNeeded];
+    }];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:.5f animations:^{
+        [self.searchBar mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(100);
+        }];
+        self.searchBar.alpha = 1;
+        
+        [self.view layoutIfNeeded];
+        [self.searchBar layoutIfNeeded];
+    }];
+}
+
 
 //隐藏单个页面电池条的方法
 - (BOOL)prefersStatusBarHidden
@@ -195,6 +281,13 @@ static BOOL isShowOrderView = YES;
 {
     if (_editState == STEditStateReading)
         [self showOrderDownView:(isShowOrderView)];
+}
+
+- (void)cancelCurrentOrder
+{
+    [self.orderDownVC.view removeFromSuperview];
+    self.orderDownVC = nil;
+    _editState = STEditStateReading;
 }
 
 - (void)showOrderDownView:(BOOL)isShow;
@@ -259,5 +352,23 @@ static BOOL isShowOrderView = YES;
     }
 }
 
+#pragma mark - TextField Delegate
+
+- (void)textFieldContentDidChanged:(UITextField *)textField
+{
+    [self.arraySearch removeAllObjects];
+    
+    for (STBaseItem *item in self.allData) {
+        [self.arraySearch addObject:item];
+        for (int i = 0; i<textField.text.length; i++) {
+            if (![item.name containsString:[textField.text substringWithRange:NSMakeRange(i, 1)]]) {
+                [self.arraySearch removeLastObject];
+                break;
+            }
+        }
+    }
+    
+    [self.tableView reloadData];
+}
 
 @end

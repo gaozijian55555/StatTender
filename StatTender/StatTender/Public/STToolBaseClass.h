@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface STToolBaseClass : NSObject
 
 + (instancetype)manager;
+
 
 /** *提示弹窗 快捷方式 otherButtonTitles类型:NSString或NSArray */
 - (UIAlertView *)alertWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(id)otherButtonTitles callBack:(void(^)(NSUInteger index))callBack;
@@ -33,3 +36,19 @@ CG_INLINE UIActionSheet *STActionSheet(NSString *title, NSString *cancelButtonTi
         callBack(index);
     }];
 }
+
+/** Toast - 遮罩提示 - Succeed */
+CG_INLINE void ToastShowSucceed(NSString *message) {
+    [MBProgressHUD showSuccess:message];
+}
+
+/** Toast - 遮罩提示 - Error */
+CG_INLINE void ToastShowError(NSString *message) {
+    [MBProgressHUD showError:message];
+}
+
+/** Toast - 纯文字提示 */
+CG_INLINE void ToastShowMessage(NSString *message) {
+    [MBProgressHUD showMessageForDelay:message];
+}
+

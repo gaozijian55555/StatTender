@@ -10,8 +10,17 @@
 
 @interface STOrderObject : NSObject
 
-// 订单编号<若订单已上传到云端，必有此字段； 否者为本地订单>
-@property (nonatomic, copy) NSString *objectID;
+// 订单编号<若订单已上传到云端，必有此字段； 否则为本地订单>
+@property (nonatomic, copy) NSString *objectID; //24位
+
+// 厂商名称
+@property (nonatomic, copy) NSString *companyName;
+
+// 订单创建时间
+@property (nonatomic, copy) NSString *downAt;
+
+// 打印时间
+@property (nonatomic, copy) NSString *printAt;
 
 // 订单内容
 @property (nonatomic, strong) NSArray<STOrderItem *> *orderItems;

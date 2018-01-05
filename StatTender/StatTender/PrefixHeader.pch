@@ -13,6 +13,7 @@
 
 #import <Masonry.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "CategorysHeader.h"
 #import "BaseModel.h"
 #import "STBaseItem.h"
 #import "STOrderItem.h"
@@ -22,11 +23,13 @@
 #import "UINavigationController+Base.h"
 
 #import "STResourceDataManager.h"
+#import "STLocalDataManager.h"
+#import "STLeanCloudManager.h"
+
 #import "STToolBaseClass.h"
 #import "STLeanCloudManager.h"
 
 #import "STMacroNotifications.h"
-
 
 //cell的标识符
 #define kTCCellIdentifier NSStringFromClass(self)
